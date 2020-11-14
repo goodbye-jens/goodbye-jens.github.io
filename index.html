@@ -172,6 +172,9 @@ via Wikimedia Commons`;
 					text: 'Here goes the text for a very long compliment that spans multiple lines and talks about how great Jens is.',
 					image: 'Placeholder.png',
 				},
+				{
+					image: 'Placeholder.png',
+				},
 			];
 
 			const complimentContainer = document.getElementById('complimentContainer');
@@ -182,8 +185,10 @@ via Wikimedia Commons`;
 				if (compliment.text) {
 					if (complimentText === null) {
 						complimentText = document.createElement('p');
-						complimentContainer.append(complimentText);
+					} else {
+						complimentText.remove();
 					}
+					complimentContainer.append(complimentText);
 					complimentText.textContent = compliment.text;
 				} else {
 					if (complimentText !== null) {
@@ -195,8 +200,10 @@ via Wikimedia Commons`;
 				if (compliment.image) {
 					if (complimentImage === null) {
 						complimentImage = document.createElement('img');
-						complimentContainer.append(complimentImage);
+					} else {
+						complimentImage.remove();
 					}
+					complimentContainer.append(complimentImage);
 					complimentImage.src = compliment.image;
 				} else {
 					if (complimentImage !== null) {
