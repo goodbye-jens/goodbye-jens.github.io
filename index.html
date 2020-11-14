@@ -86,6 +86,8 @@
 			</footer>
 		</article>
 		<script>
+			'use strict';
+
 			async function pictureOfTheDay() {
 				const date = new Date();
 				const wikitext = `{{Potd/${date.toISOString().substring(0, 10)}}}`;
