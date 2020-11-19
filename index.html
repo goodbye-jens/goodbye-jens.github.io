@@ -230,9 +230,11 @@ via Wikimedia Commons`;
 				},
 				{
 					image: 'Placeholder.png',
+					author: 'Test Author',
 				},
 				{
 					audio: 'LL-Q188_(deu)-Sebastian_Wallroth-Beispiel.wav',
+					author: 'Test Recorder',
 				},
 			];
 
@@ -262,7 +264,8 @@ via Wikimedia Commons`;
 				complimentAudioFigcaption = null,
 				complimentAudioFigcaptionP = null,
 				complimentAudioButton = null,
-				complimentAudioAudio = null;
+				complimentAudioAudio = null,
+				complimentAuthor = null;
 
 			function applyCompliment(compliment) {
 				if (compliment.text) {
@@ -324,6 +327,21 @@ via Wikimedia Commons`;
 						complimentAudioButton = null;
 						complimentAudioAudio.pause();
 						complimentAudioAudio = null;
+					}
+				}
+
+				if (compliment.author) {
+					if (complimentAuthor === null) {
+						complimentAuthor = document.createElement('p');
+					} else {
+						complimentAuthor.remove();
+					}
+					complimentContainer.append(complimentAuthor);
+					complimentAuthor.textContent = compliment.author;
+				} else {
+					if (complimentAuthor !== null) {
+						complimentAuthor.remove();
+						complimentAuthor = null;
 					}
 				}
 			}
